@@ -1,0 +1,120 @@
+﻿<Window x:Class="ProyectoP2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:local="clr-namespace:ProyectoP2"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="Papyrus"
+        
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
+        Title="MainWindow" Height="360" Width="500" Loaded="Window_Loaded">
+    <Grid>
+        <Grid x:Name="Grid1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Background="Transparent" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+                <Grid Background="#FF2B83EC">
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button x:Name="btnMini" Width="26" Height="26" Padding="0" Margin="2" 
+                            Background="#662201D1" BorderBrush="#662201D1" Click="btnMini_Click">
+                            <materialDesign:PackIcon Kind="Remove"/>
+                        </Button>
+                        <Button x:Name="btnApagar" Width="26" Height="26" Padding="0" Margin="2"
+                            Background="#FFE45757" BorderBrush="#FFE45757" Click="btnApagar_Click">
+                            <materialDesign:PackIcon Kind="Power"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1">
+                <Grid>
+                    <Rectangle Height="180" VerticalAlignment="Top"
+                       MouseLeftButtonDown="Rectangle_MouseLeftButtonDown">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="SkyBlue" Offset="1"/>
+                                <GradientStop Color="Blue" Offset="0.5"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+
+                    <Label Content="Iniciar sesión" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                       Margin="0,29,20,0" FontWeight="Bold" FontSize="25" 
+                       RenderTransformOrigin="0.5,0.5" Foreground="BlanchedAlmond"/>
+
+                    <Rectangle Width="280" Height="190" Fill="White" Margin="0 95 20 0" 
+                           HorizontalAlignment="Right" VerticalAlignment="Top">
+                        <Rectangle.Effect>
+                            <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" 
+                                          RenderingBias="Quality" ShadowDepth="1"/>
+                        </Rectangle.Effect>
+                    </Rectangle>
+
+                    <Image Source="img/Candadito.png" Width="70" Height="70" VerticalAlignment="Top" 
+                       HorizontalAlignment="Right" Margin="0,47,170,0"/>
+
+                    <Grid Width="280" Height="170" Margin="0 95 20 0" HorizontalAlignment="Right" 
+                      VerticalAlignment="Top">
+                        <StackPanel Orientation="Vertical" Margin="20 15 0 0">
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Account" VerticalAlignment="Bottom" 
+                                                     Margin="0 0 2 4" Foreground="{Binding 
+                                ElementName=txtUsuario, Path=BorderBrush}"/>
+                                <TextBox x:Name="txtUsuario" Width="205" Margin="5 0 0 0" 
+                                     materialDesign:HintAssist.Hint="Usuario"
+                                     materialDesign:HintAssist.IsFloating="True"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                                <materialDesign:PackIcon Kind="Key" VerticalAlignment="Bottom" Margin="0 0 2 4"
+                                                    Foreground="{Binding ElementName=pwdContra, 
+                                Path=BorderBrush}"/>
+                                <PasswordBox x:Name="pwdContra" Width="205" Margin="5 0 0 0"
+                                    materialDesign:HintAssist.Hint="Contraseña"
+                                    materialDesign:HintAssist.IsFloating="True"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Label x:Name="lblHora" Height="30" HorizontalAlignment="Left" 
+                           VerticalAlignment="Bottom" Width="85" FontSize="16" Margin="24 0 0 14"/>
+                        <Label x:Name="lblFecha" Height="30" HorizontalAlignment="Right" 
+                           VerticalAlignment="Bottom" Width="100" FontSize="16" Margin="0 0 30 14"/>
+                    </Grid>
+                    <Button x:Name="btnIngresar" Content="Ingresar" VerticalAlignment="Bottom" FontSize="20"
+                          Height="40"  HorizontalAlignment="Right" Margin="0 0 100 25" 
+                       Click="btnIngresar_Click"/>
+
+                    <Label Content="Bienvenid@!" FontSize="45" VerticalAlignment="Top" HorizontalAlignment="Left"
+                   Margin="10 15 0 0" Foreground="WhiteSmoke"/>
+                    <Image Source="img/camion.png" Width="180" Height="175" HorizontalAlignment="Left" 
+                   VerticalAlignment="Top" Margin="10 100 0 0"/>
+                    <Label x:Name="lblSms" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30"
+                   Margin="12 0 0 15" Width="266"/>
+                    <Button x:Name="btnCrear" HorizontalAlignment="Left" Padding="0" Height="38"
+                            Margin="420,267,0,0" VerticalAlignment="Top" Width="60" Click="btnCrear_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="UserAdd" Width="23" Height="23"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+    
+</Window>
